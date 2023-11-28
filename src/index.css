@@ -46,3 +46,6 @@ li.ant-menu-item, .ant-menu-submenu-title {
 .headerBar{
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px !important;
 }
+.iconColor{
+    fill:red !important;
+}
