@@ -1,0 +1,13 @@
+
+.datatable {
+    text-align: center;
+  }
+.datatable-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+.ant-layout-sider-children {
+    width: 215px !important;
+}
