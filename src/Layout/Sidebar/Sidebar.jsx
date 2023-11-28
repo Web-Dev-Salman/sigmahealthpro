@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import logoIconSigma from '../../assets/Icon/SigmaHealthProIcon.svg';
 import logoSigma from '../../assets/Logo/SigmaHealthProLogo.svg';
 import { Link } from 'react-router-dom';
-import { IoIosArrowForward } from "react-icons/io";
+import { CgMenu } from "react-icons/cg";
 import DashboardIcon from "../../assets/Icon/Control Panel.png"
 import EnrollmentReqiestIcon from "../../assets/Icon/Invite.svg"
 import PatientManagementIcon from "../../assets/Icon/Management.svg"
@@ -90,7 +90,7 @@ const Sidebar = ({ onMenuClick }) => {
         // w-64
         <div className={` z-10 h-screen relative `}>
             <div className='logo-div bg-white-900 p-4 '>
-                <IoIosArrowForward className={` text-seconderyColor text-3xl rounded absolute -right-28 top-[25px] cursor-pointer1 ${!collapsed ? "rotate-180 duration-500" : " rotate-0 duration-300"}`} onClick={() => setCollapsed(!collapsed)} />
+                <CgMenu className={` text-seconderyColor text-3xl rounded absolute -right-28 top-[25px] cursor-pointer1`} onClick={() => setCollapsed(!collapsed)} />
                 <div className='inline-flex'>
                     <img className={`w-full pl-4 ${!collapsed && "rotate-[360deg] w-full"} duration-500`} src={logoIconSigma} alt="" />
                     <img className={`w-auto duration-300 absolute top-[30px] left-[65px] ${!collapsed && "d-hidden "}`} src={logoSigma} alt="" />
