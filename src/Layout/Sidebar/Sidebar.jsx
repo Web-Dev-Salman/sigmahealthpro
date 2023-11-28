@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import logoIconSigma from '../../assets/Icon/SigmaHealthProIcon.svg';
 import logoSigma from '../../assets/Logo/SigmaHealthProLogo.svg';
 import { Link } from 'react-router-dom';
-import { BsArrowLeftShort } from "react-icons/bs"
-import DashboardIcon from "../../assets/Icon/Control Panel.svg"
+import { IoIosArrowForward } from "react-icons/io";
+import DashboardIcon from "../../assets/Icon/Control Panel.png"
 import EnrollmentReqiestIcon from "../../assets/Icon/Invite.svg"
 import PatientManagementIcon from "../../assets/Icon/Management.svg"
 import VaccineManagementIcon from "../../assets/Icon/Vaccine Management.svg"
@@ -87,25 +87,30 @@ const Sidebar = ({ onMenuClick }) => {
     ];
     const [collapsed, setCollapsed] = useState(true);
     return (
-        <div className={`${collapsed ? "w-64" : "w-24"}  bg-bgColor z-10 h-screen relative`}>
-            <div className='logo-div bg-white-900 p-4'>
-                <BsArrowLeftShort className={`text-mainColor text-3xl rounded bg-seconderyColor absolute -right-3 top-5 cursor-pointer1 ${!collapsed && "rotate-180 duration-500"}`} onClick={() => setCollapsed(!collapsed)} />
+        // w-64
+        <div className={` z-10 h-screen relative `}>
+            <div className='logo-div bg-white-900 p-4 '>
+                <IoIosArrowForward className={` text-seconderyColor text-3xl rounded absolute -right-28 top-[25px] cursor-pointer1 ${!collapsed ? "rotate-180 duration-500" : " rotate-0 duration-300"}`} onClick={() => setCollapsed(!collapsed)} />
                 <div className='inline-flex'>
                     <img className={`w-full pl-4 ${!collapsed && "rotate-[360deg] w-full"} duration-500`} src={logoIconSigma} alt="" />
-                    <img className={`w-auto duration-300 ${!collapsed && "d-hidden "}`} src={logoSigma} alt="" />
+                    <img className={`w-auto duration-300 absolute top-[30px] left-[65px] ${!collapsed && "d-hidden "}`} src={logoSigma} alt="" />
                 </div>
 
             </div>
-            <ul className='p-4'>
-                {navlinks.map((menu, index) => (
-                    <Link onClick={() => onMenuClick(menu.name)} to={menu.link} className={`flex group rounded-md items-center p-3 ${menu.spacing ? "mt-9" : "mt-0"}`}>
+            {/* w-[115px] */}
+            <div className={`w-[115px] pt-5 bg-bgColor h-screen flex flex-col items-center`}>
+                <ul>
+                    {navlinks.map((menu, index) => (
+                        <Link onClick={() => onMenuClick(menu.name)} to={menu.link} className={`group rounded-md flex flex-col items-center text-center align-middle gap-2`}>
                             <li key={index} />
-                            <img className={`${!collapsed && "w-full"}`} src={menu.icon} />
-                            <span className={`pl-1 ${!collapsed && "text-[0px]"} text-sideBarTextColor`}>{menu.name}</span>
-                            {!collapsed && <div className={`absolute rounded-md px-2 py-1 w-max bg-mainColor text-white left-full invisible group-hover:visible`}>{menu.name}</div>}
-                    </Link>
-                ))}
-            </ul>
+                            <img className=" w-8 text-center text-[#727272]" src={menu.icon} />
+                            <span className={`pl-1 text-sideBarTextColor`}>{menu.name}</span>
+                            {/* {!collapsed && <div className={`absolute rounded-md px-2 py-1 w-max bg-mainColor text-white left-full invisible group-hover:visible`}>{menu.name}</div>} */}
+                        </Link>
+                    ))}
+                </ul>
+            </div>
+
         </div>
     );
 };

@@ -14,13 +14,11 @@ const Root = () => {
                     <Sidebar onMenuClick={setCurrentPage}></Sidebar>
                 </div>
                 <div className='w-full'>
-                    <div>
+                    <div className='headerBar'>
                         <Header currentPage={currentPage} ></Header>
                     </div>
-                    <div className='px-3'>
+                    <div className=' px-6'>
                         <Outlet/>
-                    </div>
-                    <div>
                         <Footer></Footer>
                     </div>
                 </div>
