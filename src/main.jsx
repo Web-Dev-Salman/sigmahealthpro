@@ -21,6 +21,13 @@ import Organization from "./Pages/Organization/Organization";
 import Faculty from "./Pages/Faculty/Faculty";
 import VaccineProgram from "./Pages/Vaccine Program/VaccineProgram";
 import DataTable from "./components/Data Table/DataTable";
+import Adresses from "./Pages/Adresses/Adresses";
+import UsersClinicals from "./Pages/Users/Clinicals/UsersClinicals";
+import ContactDetails from "./Pages/Contact Details/ContactDetails";
+import Vaccines from "./Pages/Vaccines/Vaccines";
+import Inventory from "./Pages/Inventory/Inventory";
+import Orders from "./Pages/Orders/Orders";
+import Shipments from "./Pages/Shipments/Shipments";
 
 const router = createBrowserRouter([
   {
@@ -86,6 +93,34 @@ const router = createBrowserRouter([
       {
         path: '/data-table',
         element: <DataTable/>
+      },
+      {
+        path: '/addresses',
+        element: <Adresses />
+      },
+      {
+        path: '/Users-Clinicals',
+        element: <UsersClinicals />
+      },
+      {
+        path: '/contact-details',
+        element: <ContactDetails/>
+      },
+      {
+        path: '/vaccines',
+        element: <Vaccines />
+      },
+      {
+        path: '/inventory',
+        element: <Inventory />
+      },
+      {
+        path: '/orders',
+        element: <Orders/>
+      },
+      {
+        path: '/shipments',
+        element: <Shipments/>
       }
 
     ]

@@ -106,7 +106,7 @@ const Sidebar = ({ onMenuClick }) => {
                             <span className={`pl-1 text-sideBarTextColor leading-4	`}>{menu.name}</span>
                             <div onClick={() => onMenuClick()}>
                             </div>
-                            <SubPageSideBar />
+                            {/* <SubPageSideBar /> */}
                         </Link> 
                     ))}
                 </ul>
