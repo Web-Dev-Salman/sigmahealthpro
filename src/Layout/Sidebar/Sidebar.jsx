@@ -105,7 +105,7 @@ const Sidebar = ({ onMenuClick }) => {
                             <li key={index} />
                             <img className=" w-8 iconColor text-center text-[#727272]" src={menu.icon} />
                             <span className={`pl-1 text-sideBarTextColor`}>{menu.name}</span>
-                            {/* {!collapsed && <div className={`absolute rounded-md px-2 py-1 w-max bg-mainColor text-white left-full invisible group-hover:visible`}>{menu.name}</div>} */}
+                            <SubPageSideBar />
                         </Link>
                     ))}
                 </ul>
