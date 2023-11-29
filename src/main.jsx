@@ -99,7 +99,7 @@ const router = createBrowserRouter([
         element: <Adresses />
       },
       {
-        path: '/Users-Clinicals',
+        path: '/users-clinicals',
         element: <UsersClinicals />
       },
       {
