@@ -15,7 +15,18 @@ import VaccineForecastingIcon from "../../assets/Icon/Vaccine Management.png"
 import ReportsIcon from "../../assets/Icon/Graph Report.png"
 
 const Sidebar = ({ onMenuClick }) => {
-    const [collapsed, setCollapsed] = useState(false);
+    const [expandedMenu, setExpandedMenu] = useState(null);
+    const toggleSubMenu = (menuName) => {
+        
+        setExpandedMenu(expandedMenu === menuName ? null : menuName);
+    };
+    const handleMenuClick = (menu) => {
+        if (menu.submenu) {
+            setExpandedMenu(expandedMenu === menu.name ? null : menu.name);
+        } else {
+            onMenuClick(menu.name);
+        }
+    };
     const navlinks = [
         {
             name: "Dashboard",
@@ -91,39 +102,31 @@ const Sidebar = ({ onMenuClick }) => {
                 </div>
 
             </div>
-            <div className={`w-[115px] pt-5 bg-bgColor h-[calc(100vh-82px)] flex flex-col items-center`}>
+            <div className='w-[115px] pt-5 bg-bgColor h-[calc(100vh-82px)] flex flex-col items-center'>
                 <ul>
                     {navlinks.map((menu, index) => (
-                        <Link onClick={() => onMenuClick(menu.name)} to={menu.link} >
-                            <li key={index} className={` rounded-md flex flex-col items-center text-center align-middle gap-1.5 `}>
-                                <img className=" w-8 iconColor text-center text-[#727272]" src={menu.icon} />
-                                <span className={`pl-1 text-sideBarTextColor leading-4	`}>{menu.name}</span>
-                                <div onClick={() => onMenuClick()}>
-                                </div>
-                            </li>
-                                                        
-                            { menu.submenu && (
-                               <FaArrowRight onMenuClick={() => setCollapsed(!collapsed)} />
-                            )}
-                            {menu.submenu && collapsed &&(
-                                <ul >
-                                    {
-                                        menu.subMenuItems.map((subMenuItems, index) => (
-                                            <Link to={subMenuItems.link}>
-                                            <li key={index} className={` rounded-md flex flex-col items-center text-center align-middle gap-1.5 `}>
-                                                <img className=" w-8 iconColor text-center text-[#727272]" src={subMenuItems.icon} />
-                                                <span className={`pl-1 text-sideBarTextColor leading-4	`}>{subMenuItems.name}</span>
+                        <li key={index} className={`rounded-md flex flex-col items-center text-center align-middle gap-1.5`}>
+                            <Link onClick={() => handleMenuClick(menu)} to={menu.link || '#'} className='flex flex-col items-center text-center align-middle gap-1.5'>
+                                <img className="w-8 iconColor text-center text-[#727272]" src={menu.icon} alt={menu.name} />
+                                <span className={`pl-1 text-sideBarTextColor leading-4`}>{menu.name}</span>
+                            </Link>
+
+                            {menu.submenu && expandedMenu === menu.name && (
+                                <ul>
+                                    {menu.subMenuItems.map((subMenuItem, subIndex) => (
+                                        <Link key={subIndex} to={subMenuItem.link}>
+                                            <li className={`rounded-md flex flex-col items-center text-center align-middle gap-1.5`}>
+                                                <img className="w-8 iconColor text-center text-[#727272]" src={subMenuItem.icon} alt={subMenuItem.name} />
+                                                <span className={`pl-1 text-sideBarTextColor leading-4`}>{subMenuItem.name}</span>
                                             </li>
-                                            </Link>
-                                        ))
-                                    }
+                                        </Link>
+                                    ))}
                                 </ul>
                             )}
-                        </Link>
+                        </li>
                     ))}
-
                 </ul>
-            </div>
+   </div>
 
         </div>
     );
