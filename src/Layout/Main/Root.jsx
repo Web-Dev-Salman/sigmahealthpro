@@ -17,7 +17,7 @@ const Root = () => {
                     <div className='headerBar'>
                         <Header currentPage={currentPage} ></Header>
                     </div>
-                    <div className=' px-6'>
+                    <div className=' px-6 flex-grow'>
                         <Outlet/>
                         <Footer></Footer>
                     </div>
