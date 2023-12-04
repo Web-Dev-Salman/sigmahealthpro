@@ -5,26 +5,24 @@ import Sidebar from '../Sidebar/Sidebar'
 import { Outlet } from 'react-router-dom'
 
 
-const Root = ({setExpandedMenu}) => {
+const Root = () => {
     const [currentPage, setCurrentPage] = useState('Dashboard');
     return (
-        <>
-            <section>
-                <div >
+        <section>
+            <div >
                 <Header currentPage={currentPage} ></Header>
+            </div>
+            <div className='w-full flex'>
+                <div className='headerBar'>
+
+                    <Sidebar onMenuClick={setCurrentPage}></Sidebar>
                 </div>
-                <div className='w-full flex'>
-                    <div className='headerBar'>
-                        
-                        <Sidebar onMenuClick={setCurrentPage}></Sidebar>
-                    </div>
-                    <div className={` px-6 flex-grow ${setExpandedMenu ? "hidden" : "visible"}`} >
-                        <Outlet/>
-                        <Footer></Footer>
-                    </div>
+                <div className={` px-6 flex-grow`} >
+                    <Outlet />
+                    <Footer></Footer>
                 </div>
-            </section>
-        </>
+            </div>
+        </section>
     )
 }
 

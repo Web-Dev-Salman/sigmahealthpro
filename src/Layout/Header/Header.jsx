@@ -7,7 +7,7 @@ import logoSigma from '../../assets/Logo/SigmaHealthProLogo.svg';
 
 const Header = ({ currentPage }) => {
   return (
-    <div className='flex justify-between items-center p-4'>
+    <div className='flex justify-between items-center p-4 shadow-md'>
         <div className='flex items-center '>
           <img className={`w-[50px] pl-4 duration-500`} src={logoIconSigma} alt="" />
           <img className={`w-[100px] duration-300`} src={logoSigma} alt="" />
