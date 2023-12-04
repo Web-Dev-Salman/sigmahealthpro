@@ -3,6 +3,7 @@ import logoIconSigma from '../../assets/Icon/SigmaHealthProIcon.svg';
 import logoSigma from '../../assets/Logo/SigmaHealthProLogo.svg';
 import { Link } from 'react-router-dom';
 import DashboardIcon from "../../assets/Icon/Control Panel.png"
+import { HiMenu } from "react-icons/hi";
 import EnrollmentReqiestIcon from "../../assets/Icon/Invite.png"
 import PatientManagementIcon from "../../assets/Icon/Management.png"
 import VaccineManagementIcon from "../../assets/Icon/Vaccine Management.png"
@@ -14,7 +15,7 @@ import VaccineForecastingIcon from "../../assets/Icon/Vaccine Management.png"
 import ReportsIcon from "../../assets/Icon/Graph Report.png"
 
 const Sidebar = ({ onMenuClick }) => {
-    const [expandedMenu, setExpandedMenu] = useState(null);
+    const [expandedMenu, setExpandedMenu] = useState(true);
 
     const toggleSubMenu = (menuName) => {
         setExpandedMenu(expandedMenu === menuName ? null : menuName);
@@ -95,12 +96,6 @@ const Sidebar = ({ onMenuClick }) => {
 
     return (
         <div className={` z-10 relative`}>
-            <div className='logo-div bg-white-900 p-4 '>
-                <div className='inline-flex'>
-                    <img className={`w-full pl-4 duration-500`} src={logoIconSigma} alt="" />
-                    <img className={`w-auto duration-300 absolute top-[30px] left-[65px]`} src={logoSigma} alt="" />
-                </div>
-            </div>
             <div className='w-[115px] pt-5 bg-bgColor h-[calc(100vh-82px)] flex flex-col items-center'>
                 <ul>
                     {navlinks.map((menu, index) => (
@@ -111,8 +106,7 @@ const Sidebar = ({ onMenuClick }) => {
                             </Link>
 
                             {menu.submenu && expandedMenu === menu.name && (
-                                <ul className="absolute right-[-162px] top-[-95px] w-auto h-screen bg-gray-700">
-                                    <button></button>
+                                <ul className="absolute right-[-162px] top-[-95px] w-auto h-[80vh] bg-gray-700">
                                     {menu.subMenuItems.map((subMenuItem, subIndex) => (
                                         <Link key={subIndex} to={subMenuItem.link}>
                                             <li className="py-3 p-3 flex">
